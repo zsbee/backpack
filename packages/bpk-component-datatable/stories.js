@@ -32,10 +32,18 @@ const rows = [
 
 // eslint-disable-next-line no-alert
 const onRowClick = row => alert(JSON.stringify(row));
+const onSorterClick = event => alert(JSON.stringify(event));
 
 storiesOf('bpk-component-datatable', module)
   .add('Autowidth Example', () => (
-    <BpkDataTable rows={rows} height={300} onRowClick={onRowClick}>
+    <BpkDataTable
+      sort={onSorterClick}
+      sortBy="bla"
+      sortDirection="DESC"
+      rows={rows}
+      height={300}
+      onRowClick={onRowClick}
+    >
       <BpkDataTableColumn label="Name" dataKey="name" width={100} />
       <BpkDataTableColumn
         label="Description"
